@@ -13,6 +13,9 @@
 >
 > 本仓库是**对外展示仓库**，只包含可交互的界面原型、线框图和设计文档，**不含产品源代码**。
 > 产品源代码为闭源（source-available，保留所有权利），详见 [LICENSE](LICENSE)。
+>
+> 本展示页源码仓库：<https://github.com/MrWhite-art/ai-bid-system-showcase>
+> （即本仓库；仅存放展示页自身的 HTML、截图、原型与线框图，**不是产品源码**）
 
 ---
 
