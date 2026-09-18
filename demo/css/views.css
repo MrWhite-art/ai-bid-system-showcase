@@ -1,0 +1,57 @@
+/* views.css —— 视图专属样式 */
+/* 通用页头 */
+.page-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+.page-title { font-size:20px; font-weight:700; }
+.sub { font-size:12px; color:var(--text-3); }
+.tip { font-size:12px; color:var(--text-3); margin-top:12px; }
+.tabs { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+.tab { padding:8px 16px; border-radius:var(--r-md); color:var(--text-2); background:var(--bg-card); border:1px solid var(--border); font-size:14px; }
+.tab.is-on { color:var(--primary); background:var(--primary-bg); border-color:var(--primary); font-weight:600; }
+.split { display:grid; grid-template-columns:1fr 360px; gap:16px; }
+.kv-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.kv-grid span { display:block; font-size:12px; color:var(--text-3); }
+.kv { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); }
+.kv span { color:var(--text-2); }
+
+/* 大纲 */
+.outline-chap { display:flex; align-items:center; gap:8px; padding:8px 0; font-size:14px; font-weight:600; }
+.outline-chap .toggle { cursor:pointer; width:16px; color:var(--text-3); }
+.chap-title.done { color:var(--text-3); }
+.outline-children { padding-left:22px; border-left:1px dashed var(--border); margin:4px 0 8px 8px; }
+.outline-node { display:flex; align-items:center; gap:8px; padding:6px 0; font-size:13px; color:var(--text-2); }
+.meta { font-size:12px; color:var(--text-3); margin-left:auto; }
+.gap-item { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); font-size:13px; }
+.leaf { color:var(--primary); font-size:12px; }
+
+/* 内容写作四区 */
+.writing-grid { display:grid; grid-template-columns:22% 1fr 26% 20%; gap:14px; }
+.w-outline .chap { display:flex; align-items:center; gap:8px; padding:7px 0; font-size:13px; }
+.w-outline .chap.done { color:var(--text-3); }
+.w-outline .sub { padding:6px 0 6px 20px; }
+.w-outline .sub.on { color:var(--primary); font-weight:600; }
+.editor-toolbar { display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--border); padding-bottom:8px; margin-bottom:12px; }
+.tb-group span { display:inline-block; width:26px; text-align:center; color:var(--text-2); cursor:pointer; }
+.word-count { font-size:12px; color:var(--text-3); }
+.editor-body { min-height:360px; line-height:1.8; }
+.editor-body p { margin-bottom:12px; }
+.ai-cursor { display:inline-block; width:2px; height:16px; background:var(--ai-purple); vertical-align:-2px; animation:blink 0.8s step-end infinite; }
+@keyframes blink { 50% { opacity:0; } }
+.editor-foot { display:flex; gap:8px; margin-top:14px; }
+.sp-item { display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-bottom:1px solid var(--border); font-size:13px; }
+.kb-card { padding:10px 12px; border:1px solid var(--border); border-radius:var(--r-md); margin-bottom:10px; font-size:13px; cursor:pointer; }
+.kb-card:hover { border-color:var(--primary); background:var(--primary-bg); }
+
+/* 审校 */
+.issue { display:flex; align-items:center; gap:10px; padding:12px 0; border-bottom:1px solid var(--border); }
+.issue b { flex:1; font-size:14px; }
+.issue .sub { white-space:nowrap; }
+
+/* 导出 */
+.switch-row { display:flex; justify-content:space-between; align-items:center; padding:14px 0; border-bottom:1px solid var(--border); font-size:14px; }
+.switch { width:44px; height:24px; border-radius:999px; background:var(--border); position:relative; transition:background .2s; }
+.switch .knob { position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:999px; background:#fff; transition:left .2s; box-shadow:0 1px 2px rgba(0,0,0,.2); }
+.switch.on { background:var(--primary); }
+.switch.on .knob { left:23px; }
+.dropzone { border:1.5px dashed var(--border); border-radius:var(--r-md); padding:26px; text-align:center; color:var(--text-2); font-size:13px; }
+.dropzone.drag { border-color:var(--primary); background:var(--primary-bg); }
+.total td { font-weight:700; }

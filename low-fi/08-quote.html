@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 报价</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 报价：成本拆分表 + 汇总卡 + 占比条（灰阶） */
+  .page-title { font-size: 18px; font-weight: bold; color: #334155; }
+  .page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .layout { display: flex; gap: 12px; align-items: flex-start; }
+  .main-pane { flex: 7; min-width: 0; }
+  .side-pane { flex: 3; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+  .block-title { margin-bottom: 8px; font-size: 14px; font-weight: bold; color: #334155; }
+  .cell-amount { flex: 1.4; }
+  .row-total { font-weight: bold; }
+  .sum-card { padding: 12px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .sum-title { font-size: 14px; font-weight: bold; color: #334155; }
+  .sum-item { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #64748b; }
+  .sum-item b { color: #334155; }
+  .ratio-block { margin-top: 16px; }
+  .ratio-track { display: flex; height: 18px; overflow: hidden; border: 1px dashed #94a3b8; border-radius: 3px; background: #e2e8f0; }
+  .seg { height: 100%; }
+  .seg-1 { width: 40%; background: #475569; }
+  .seg-2 { width: 25%; background: #94a3b8; }
+  .seg-3 { width: 20%; background: #64748b; }
+  .seg-4 { width: 15%; background: #cbd5e1; }
+  .ratio-legend { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #64748b; }
+  .legend-bar { width: 120px; height: 10px; border-radius: 2px; background: #94a3b8; }
+  .legend-bar.lb-2 { width: 75px; background: #94a3b8; }
+  .legend-bar.lb-3 { width: 60px; background: #64748b; }
+  .legend-bar.lb-4 { width: 45px; background: #cbd5e1; }
+  .legend-item .pct { margin-left: auto; color: #94a3b8; }
+  .bottom-bar { margin-top: 16px; padding: 10px 12px; display: flex; align-items: center; gap: 8px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .bottom-bar .hint { margin-right: auto; font-size: 12px; color: #94a3b8; }
+  .btn-main { display: inline-block; padding: 8px 22px; font-size: 13px; text-align: center; border-radius: 4px; background: #475569; color: #f8fafc; text-decoration: none; }
+  .btn-main:hover { background: #334155; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav" href="04-parse.html">标书解析</a>
+      <a class="wf-nav" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav is-on" href="08-quote.html">投标报价</a>
+      <a class="wf-nav" href="09-review.html">内容审校</a>
+      <a class="wf-nav" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">商务阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="page-head">
+        <div class="page-title">XX市智慧政务平台采购项目 · 报价</div>
+        <span class="ph-btn">生成报价单</span>
+      </div>
+      <div class="layout">
+        <div class="main-pane">
+          <div class="block-title">成本拆分（表格占位）</div>
+          <div class="ph-table">
+            <div class="ph-row head">
+              <div class="ph-cell">成本类别</div>
+              <div class="ph-cell cell-amount">预算金额（占位）</div>
+              <div class="ph-cell cell-amount">报价金额（占位）</div>
+              <div class="ph-cell">占比（占位）</div>
+            </div>
+            <div class="ph-row">
+              <div class="ph-cell">人工</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell">40%（占位）</div>
+            </div>
+            <div class="ph-row">
+              <div class="ph-cell">材料</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell">25%（占位）</div>
+            </div>
+            <div class="ph-row">
+              <div class="ph-cell">设备</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell">20%（占位）</div>
+            </div>
+            <div class="ph-row">
+              <div class="ph-cell">其他</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell">15%（占位）</div>
+            </div>
+            <div class="ph-row row-total">
+              <div class="ph-cell">合计</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell cell-amount">¥---</div>
+              <div class="ph-cell">100%</div>
+            </div>
+          </div>
+          <div class="ratio-block">
+            <div class="block-title">报价占比（4 段灰条占位）</div>
+            <div class="ratio-track">
+              <span class="seg seg-1"></span>
+              <span class="seg seg-2"></span>
+              <span class="seg seg-3"></span>
+              <span class="seg seg-4"></span>
+            </div>
+            <div class="ratio-legend">
+              <div class="legend-item"><span class="legend-bar lb-1"></span><span>人工</span><span class="pct">40%</span></div>
+              <div class="legend-item"><span class="legend-bar lb-2"></span><span>材料</span><span class="pct">25%</span></div>
+              <div class="legend-item"><span class="legend-bar lb-3"></span><span>设备</span><span class="pct">20%</span></div>
+              <div class="legend-item"><span class="legend-bar lb-4"></span><span>其他</span><span class="pct">15%</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="side-pane">
+          <div class="sum-card">
+            <div class="sum-title">报价汇总（卡片占位）</div>
+            <div class="sum-item">总报价<span><b>¥---</b></span></div>
+            <div class="sum-item">税前合计<span>¥---（数值占位）</span></div>
+            <div class="sum-item">税费<span>¥---（数值占位）</span></div>
+            <div class="sum-item">利润率<span>--%（数值占位）</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <span class="hint">报价金额与占比为占位，待正式成本数据接入</span>
+        <a class="btn-main" href="09-review.html">下一步：审校</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

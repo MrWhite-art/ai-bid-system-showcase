@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 写作工作台</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 写作工作台：四区布局（22 / 34 / 22 / 22）+ 底部 AI 提示条（灰阶） */
+  .wf-content { display: flex; flex-direction: column; }
+  .workspace { flex: 1; display: flex; flex-direction: column; min-height: 0; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .cols { flex: 1; display: flex; min-height: 0; }
+  .col { display: flex; flex-direction: column; min-width: 0; overflow: auto; padding: 12px; }
+  .col-nav { flex: 22; border-right: 1px solid #e2e8f0; }
+  .col-edit { flex: 34; border-right: 1px solid #e2e8f0; }
+  .col-score { flex: 22; border-right: 1px solid #e2e8f0; }
+  .col-kb { flex: 22; }
+  .col-title { margin-bottom: 10px; font-size: 13px; font-weight: bold; color: #334155; }
+  .chap-list { display: flex; flex-direction: column; gap: 2px; }
+  .chap { display: flex; align-items: center; gap: 6px; padding: 7px 8px; font-size: 12px; color: #64748b; text-decoration: none; border-radius: 3px; }
+  .chap:hover { background: #f1f5f9; }
+  .chap.is-on { background: #e2e8f0; color: #334155; font-weight: bold; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; flex-shrink: 0; }
+  .dot.ok { background: #22c55e; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 4px; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px solid #e2e8f0; }
+  .tool { display: inline-block; padding: 3px 8px; font-size: 12px; color: #64748b; border: 1px dashed #cbd5e1; border-radius: 3px; background: #f8fafc; }
+  .doc { flex: 1; padding: 4px 2px; }
+  .doc-h { margin-bottom: 10px; font-size: 14px; font-weight: bold; color: #475569; }
+  .line { height: 12px; margin-bottom: 8px; border-radius: 2px; background: #e2e8f0; }
+  .line.s { background: #e8edf2; }
+  .w100 { width: 100%; } .w95 { width: 95%; } .w90 { width: 90%; } .w85 { width: 85%; } .w80 { width: 80%; }
+  .cursor-line { display: flex; align-items: center; gap: 4px; margin-top: 2px; }
+  .cursor { display: inline-block; width: 2px; height: 15px; background: #475569; animation: blink 1s step-end infinite; }
+  .cursor-hint { font-size: 12px; color: #94a3b8; }
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  .score-item { margin-bottom: 8px; padding: 8px; border: 1px solid #e2e8f0; border-radius: 4px; background: #f8fafc; }
+  .badge { display: inline-block; padding: 1px 6px; font-size: 11px; border-radius: 3px; }
+  .badge.ok { background: #dcfce7; color: #16a34a; }
+  .badge.todo { background: #e2e8f0; color: #64748b; }
+  .badge.off { background: #e2e8f0; color: #94a3b8; }
+  .score-text { margin-top: 6px; font-size: 12px; color: #64748b; }
+  .kb-card { margin-bottom: 8px; padding: 8px; border: 1px solid #e2e8f0; border-radius: 4px; background: #f8fafc; }
+  .kb-title { font-size: 12px; font-weight: bold; color: #334155; }
+  .kb-meta { margin-top: 4px; font-size: 11px; color: #94a3b8; }
+  .kb-conf { margin-top: 4px; font-size: 11px; color: #64748b; }
+  .ai-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; border-top: 1px solid #e2e8f0; background: #f8fafc; color: #64748b; font-size: 13px; }
+  .ai-spark { color: #94a3b8; }
+  .ai-bar .spacer { margin-left: auto; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav" href="04-parse.html">标书解析</a>
+      <a class="wf-nav" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav is-on" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav" href="08-quote.html">投标报价</a>
+      <a class="wf-nav" href="09-review.html">内容审校</a>
+      <a class="wf-nav" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">编写阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="workspace">
+        <div class="cols">
+          <div class="col col-nav">
+            <div class="col-title">大纲导航</div>
+            <div class="chap-list">
+              <a class="chap" href="05-outline.html"><span class="dot ok"></span>1. 项目概述</a>
+              <a class="chap is-on" href="#"><span class="dot"></span>2. 技术方案（当前章节占位）</a>
+              <a class="chap" href="#"><span class="dot"></span>2.1 系统架构</a>
+              <a class="chap" href="#"><span class="dot"></span>2.2 功能设计</a>
+              <a class="chap" href="#"><span class="dot"></span>3. 实施方案</a>
+              <a class="chap" href="#"><span class="dot"></span>4. 商务应答</a>
+            </div>
+          </div>
+          <div class="col col-edit">
+            <div class="col-title">编辑器 — 第 2 章 技术方案</div>
+            <div class="toolbar">
+              <span class="tool">B</span>
+              <span class="tool">I</span>
+              <span class="tool">U</span>
+              <span class="tool">标题</span>
+              <span class="tool">列表</span>
+              <span class="tool">引用</span>
+              <span class="tool">插入图片</span>
+            </div>
+            <div class="doc">
+              <div class="doc-h">2.1 系统架构（正文标题占位）</div>
+              <div class="line w100"></div>
+              <div class="line w95"></div>
+              <div class="line w90"></div>
+              <div class="line w85 s"></div>
+              <div class="line w100"></div>
+              <div class="line w80 s"></div>
+              <div class="line w95"></div>
+              <div class="line w90 s"></div>
+              <div class="line w85"></div>
+              <div class="cursor-line"><span class="cursor"></span><span class="cursor-hint">光标闪烁占位</span></div>
+            </div>
+          </div>
+          <div class="col col-score">
+            <div class="col-title">评分点</div>
+            <div class="score-item">
+              <span class="badge ok">✓ 已覆盖</span>
+              <div class="score-text">评分点占位：技术分 5.2 系统架构完整性</div>
+            </div>
+            <div class="score-item">
+              <span class="badge todo">待覆盖</span>
+              <div class="score-text">评分点占位：技术分 5.3 功能清单逐项响应</div>
+            </div>
+            <div class="score-item">
+              <span class="badge off">未涉及</span>
+              <div class="score-text">评分点占位：商务分 4.1 同类业绩案例</div>
+            </div>
+          </div>
+          <div class="col col-kb">
+            <div class="col-title">知识库参考</div>
+            <div class="kb-card">
+              <div class="kb-title">技术方案模板（文档占位）</div>
+              <div class="kb-meta">章节：第 3 章 · 系统架构</div>
+              <div class="kb-conf">置信度 92%</div>
+            </div>
+            <div class="kb-card">
+              <div class="kb-title">智慧政务案例集（文档占位）</div>
+              <div class="kb-meta">章节：平台建设经验</div>
+              <div class="kb-conf">置信度 85%</div>
+            </div>
+            <div class="kb-card">
+              <div class="kb-title">评标办法解读（文档占位）</div>
+              <div class="kb-meta">章节：技术评分细则</div>
+              <div class="kb-conf">置信度 78%</div>
+            </div>
+          </div>
+        </div>
+        <div class="ai-bar">
+          <span class="ai-spark">✦</span>
+          <span>AI 生成中……</span>
+          <span class="spacer"></span>
+          <span class="ph-btn">停止</span>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

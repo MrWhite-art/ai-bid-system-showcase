@@ -1,0 +1,155 @@
+/* 低保真线框外壳样式：灰阶风格，视觉决策留给 Figma 高保真 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 13px;
+  color: #475569;
+  background: #f1f5f9;
+}
+
+/* 侧边栏：深灰底、固定宽 216px */
+.wf-sidebar {
+  width: 216px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #334155;
+  color: #cbd5e1;
+}
+
+.wf-logo {
+  padding: 14px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f8fafc;
+}
+
+.wf-sidebar nav {
+  flex: 1;
+}
+
+.wf-group {
+  padding: 12px 16px 4px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.wf-nav {
+  display: block;
+  padding: 8px 16px;
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.wf-nav.is-on {
+  background: #475569;
+  color: #f8fafc;
+  border-left: 3px solid #94a3b8;
+}
+
+/* 主区域：自适应剩余宽度 */
+.wf-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.wf-topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.wf-proj {
+  font-weight: bold;
+  color: #334155;
+}
+
+.wf-stage {
+  padding: 2px 8px;
+  font-size: 12px;
+  color: #64748b;
+  border: 1px dashed #94a3b8;
+  border-radius: 3px;
+}
+
+.wf-user {
+  margin-left: auto;
+  color: #64748b;
+}
+
+.wf-content {
+  flex: 1;
+  padding: 16px;
+  overflow: auto;
+}
+
+/* 占位块：虚线边框灰块 */
+.ph {
+  min-height: 32px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #94a3b8;
+  border-radius: 4px;
+  background: #e2e8f0;
+  color: #64748b;
+  text-align: center;
+}
+
+/* 按钮占位 */
+.ph-btn {
+  display: inline-block;
+  padding: 6px 14px;
+  min-width: 72px;
+  font-size: 12px;
+  text-align: center;
+  border: 1px dashed #64748b;
+  border-radius: 4px;
+  background: #e2e8f0;
+  color: #64748b;
+}
+
+/* 表格占位：行 / 单元格 */
+.ph-table {
+  width: 100%;
+  border: 1px dashed #94a3b8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.ph-row {
+  display: flex;
+  border-bottom: 1px dashed #cbd5e1;
+  background: #e8edf2;
+}
+
+.ph-row:last-child {
+  border-bottom: none;
+}
+
+.ph-row.head {
+  background: #d8dee8;
+  font-weight: bold;
+}
+
+.ph-cell {
+  flex: 1;
+  padding: 8px 10px;
+  color: #64748b;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

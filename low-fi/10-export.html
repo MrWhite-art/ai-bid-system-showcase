@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 导出</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 导出：设置开关 + 进度条 + 完成卡片（灰阶） */
+  .page-title { font-size: 18px; font-weight: bold; color: #334155; }
+  .page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .block-title { margin-bottom: 8px; font-size: 14px; font-weight: bold; color: #334155; }
+  .panel { padding: 4px 12px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .setting { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px dashed #e2e8f0; }
+  .setting:last-child { border-bottom: none; }
+  .setting-label { flex: 1; font-size: 13px; color: #334155; }
+  .setting-desc { font-size: 11px; color: #94a3b8; }
+  .switch { position: relative; display: inline-block; width: 36px; height: 20px; flex-shrink: 0; border: 1px solid #64748b; border-radius: 10px; background: #94a3b8; }
+  .switch.off { border: 1px dashed #94a3b8; background: #e2e8f0; }
+  .switch::after { content: ""; position: absolute; top: 2px; left: 18px; width: 14px; height: 14px; border-radius: 50%; background: #f8fafc; }
+  .switch.off::after { left: 2px; background: #94a3b8; }
+  .switch-state { width: 44px; flex-shrink: 0; font-size: 11px; color: #64748b; }
+  .progress-block { margin-top: 16px; }
+  .progress-track { height: 16px; overflow: hidden; border: 1px dashed #94a3b8; border-radius: 4px; background: #e2e8f0; }
+  .progress-fill { width: 60%; height: 100%; background: #94a3b8; }
+  .progress-meta { margin-top: 6px; display: flex; justify-content: space-between; font-size: 12px; color: #64748b; }
+  .done-card { margin-top: 16px; padding: 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; text-align: center; }
+  .done-title { font-size: 14px; font-weight: bold; color: #334155; }
+  .done-hint { font-size: 12px; color: #94a3b8; }
+  .done-actions { display: flex; align-items: center; gap: 8px; }
+  .btn-main { display: inline-block; padding: 8px 22px; font-size: 13px; text-align: center; border-radius: 4px; background: #475569; color: #f8fafc; text-decoration: none; }
+  .btn-main:hover { background: #334155; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav" href="04-parse.html">标书解析</a>
+      <a class="wf-nav" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav" href="08-quote.html">投标报价</a>
+      <a class="wf-nav" href="09-review.html">内容审校</a>
+      <a class="wf-nav is-on" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">交付阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="page-head">
+        <div class="page-title">XX市智慧政务平台采购项目 · 导出</div>
+        <span class="ph-btn">重新导出</span>
+      </div>
+      <div class="block-title">导出设置（开关占位）</div>
+      <div class="panel">
+        <div class="setting">
+          <span class="setting-label">包含封面<span class="setting-desc">（导出设置占位）</span></span>
+          <span class="switch"></span>
+          <span class="switch-state">已开启</span>
+        </div>
+        <div class="setting">
+          <span class="setting-label">包含目录<span class="setting-desc">（导出设置占位）</span></span>
+          <span class="switch"></span>
+          <span class="switch-state">已开启</span>
+        </div>
+        <div class="setting">
+          <span class="setting-label">包含页码<span class="setting-desc">（导出设置占位）</span></span>
+          <span class="switch off"></span>
+          <span class="switch-state">已关闭</span>
+        </div>
+      </div>
+      <div class="progress-block">
+        <div class="block-title">导出进度（进度条占位）</div>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="progress-meta">
+          <span>正在生成 Word 文档……（进度占位）</span>
+          <span>60%</span>
+        </div>
+      </div>
+      <div class="done-card">
+        <div class="done-title">导出完成（卡片占位）</div>
+        <div class="done-hint">文档已生成，可下载 Word / PDF 版本（占位）</div>
+        <div class="done-actions">
+          <a class="ph-btn" href="#">下载 Word</a>
+          <a class="ph-btn" href="#">下载 PDF</a>
+        </div>
+        <a class="btn-main" href="02-dashboard.html">回到驾驶舱</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

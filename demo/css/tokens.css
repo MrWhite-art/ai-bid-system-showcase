@@ -1,0 +1,14 @@
+/* tokens.css —— 与 Figma 设计系统变量逐一对应 */
+:root {
+  --primary:#2563EB; --primary-hover:#1D4ED8; --primary-bg:#EFF6FF;
+  --grad-from:#2563EB; --grad-to:#38BDF8;
+  --sidebar-dark:#0F1B33;
+  --success:#10B981; --warning:#F59E0B; --danger:#EF4444;
+  --ai-purple:#7C3AED; --ai-bg:#F5F3FF; --ai-border:#DDD6FE;
+  --text-1:#1F2937; --text-2:#6B7280; --text-3:#9CA3AF;
+  --border:#E5E9F0; --bg-page:#F5F7FA; --bg-card:#FFFFFF;
+  --r-lg:12px; --r-md:8px; --r-pill:999px;
+  --shadow-card:0 1px 3px rgba(16,24,40,.06);
+  --shadow-lift:0 4px 12px rgba(16,24,40,.10);
+  --fs-hero:26px; --fs-page:18px; --fs-card:14px; --fs-body:14px; --fs-cap:11px;
+}

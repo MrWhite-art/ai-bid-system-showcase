@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 驾驶舱</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 驾驶舱：内容区局部样式（灰阶） */
+  .page-title { font-size: 18px; font-weight: bold; color: #334155; }
+  .welcome { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  .card { padding: 12px; display: flex; flex-direction: column; gap: 8px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .card-label { font-size: 12px; color: #64748b; }
+  .card-num { min-height: 36px; }
+  .card-trend { min-height: 24px; font-size: 12px; }
+  .block-title { margin: 16px 0 8px; font-size: 14px; font-weight: bold; color: #334155; }
+  .stage-tag { display: inline-block; padding: 2px 8px; font-size: 12px; border: 1px dashed #94a3b8; border-radius: 3px; background: #e2e8f0; color: #64748b; }
+  .status-bar { margin-top: 16px; padding: 10px 12px; display: flex; align-items: center; gap: 8px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; color: #64748b; font-size: 12px; }
+  .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav is-on" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav" href="04-parse.html">标书解析</a>
+      <a class="wf-nav" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav" href="08-quote.html">投标报价</a>
+      <a class="wf-nav" href="09-review.html">内容审校</a>
+      <a class="wf-nav" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">准备阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="welcome">
+        <div class="page-title">欢迎回来，admin（大标题占位）</div>
+        <a class="ph-btn" href="03-tenders.html">新建投标项目</a>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="card-label">在投项目</div>
+          <div class="ph card-num">数字占位</div>
+          <div class="ph card-trend">环比占位</div>
+        </div>
+        <div class="card">
+          <div class="card-label">待评分标书</div>
+          <div class="ph card-num">数字占位</div>
+          <div class="ph card-trend">环比占位</div>
+        </div>
+        <div class="card">
+          <div class="card-label">覆盖评分项</div>
+          <div class="ph card-num">数字占位</div>
+          <div class="ph card-trend">环比占位</div>
+        </div>
+        <div class="card">
+          <div class="card-label">即将截止</div>
+          <div class="ph card-num">数字占位</div>
+          <div class="ph card-trend">环比占位</div>
+        </div>
+      </div>
+      <div class="block-title">最近项目</div>
+      <div class="ph-table">
+        <div class="ph-row head">
+          <div class="ph-cell">项目名称</div>
+          <div class="ph-cell">当前阶段</div>
+          <div class="ph-cell">截止日期</div>
+          <div class="ph-cell">操作</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell">XX市智慧政务平台采购项目</div>
+          <div class="ph-cell"><span class="stage-tag">准备阶段</span></div>
+          <div class="ph-cell">2026-09-30</div>
+          <div class="ph-cell">查看</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell">项目 B（行占位）</div>
+          <div class="ph-cell"><span class="stage-tag">编写阶段</span></div>
+          <div class="ph-cell">—</div>
+          <div class="ph-cell">查看</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell">项目 C（行占位）</div>
+          <div class="ph-cell"><span class="stage-tag">评审阶段</span></div>
+          <div class="ph-cell">—</div>
+          <div class="ph-cell">查看</div>
+        </div>
+      </div>
+      <div class="status-bar">
+        <span class="status-dot"></span>
+        <span>系统状态：运行中</span>
+        <span>· 服务正常 · 解析队列空闲</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

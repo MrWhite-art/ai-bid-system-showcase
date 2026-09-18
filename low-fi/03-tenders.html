@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 投标项目</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 投标项目：内容区局部样式（灰阶） */
+  .page-title { font-size: 18px; font-weight: bold; color: #334155; }
+  .page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .w-2 { flex: 2; }
+  .stage-tag { display: inline-block; padding: 2px 8px; font-size: 12px; border: 1px dashed #94a3b8; border-radius: 3px; background: #e2e8f0; color: #64748b; }
+  .modal-overlay { position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; background: rgba(51, 65, 85, 0.45); }
+  .modal { width: 360px; padding: 16px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #94a3b8; border-radius: 6px; background: #ffffff; }
+  .modal-title { font-size: 14px; font-weight: bold; color: #334155; }
+  .modal-actions { display: flex; justify-content: flex-end; gap: 8px; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav is-on" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav" href="04-parse.html">标书解析</a>
+      <a class="wf-nav" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav" href="08-quote.html">投标报价</a>
+      <a class="wf-nav" href="09-review.html">内容审校</a>
+      <a class="wf-nav" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">准备阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="page-head">
+        <div class="page-title">投标项目</div>
+        <a class="ph-btn" href="#">新建投标项目</a>
+      </div>
+      <div class="ph-table">
+        <div class="ph-row head">
+          <div class="ph-cell w-2">项目名称</div>
+          <div class="ph-cell">项目编号</div>
+          <div class="ph-cell">预算（万元）</div>
+          <div class="ph-cell">截止日期</div>
+          <div class="ph-cell">状态</div>
+          <div class="ph-cell">操作</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell w-2">XX市智慧政务平台采购项目</div>
+          <div class="ph-cell">ZB-2026-001</div>
+          <div class="ph-cell">—</div>
+          <div class="ph-cell">2026-09-30</div>
+          <div class="ph-cell"><span class="stage-tag">准备阶段</span></div>
+          <div class="ph-cell">查看</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell w-2">项目 B（行占位）</div>
+          <div class="ph-cell">ZB-2026-002</div>
+          <div class="ph-cell">—</div>
+          <div class="ph-cell">—</div>
+          <div class="ph-cell"><span class="stage-tag">编写阶段</span></div>
+          <div class="ph-cell">查看</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell w-2">项目 C（行占位）</div>
+          <div class="ph-cell">ZB-2026-003</div>
+          <div class="ph-cell">—</div>
+          <div class="ph-cell">—</div>
+          <div class="ph-cell"><span class="stage-tag">评审阶段</span></div>
+          <div class="ph-cell">查看</div>
+        </div>
+      </div>
+
+      <div class="modal-overlay">
+        <div class="modal">
+          <div class="modal-title">新建投标项目（弹窗占位）</div>
+          <div class="ph">项目名称占位</div>
+          <div class="ph">项目编号占位</div>
+          <div class="ph">预算金额占位</div>
+          <div class="modal-actions">
+            <a class="ph-btn" href="#">取消</a>
+            <a class="ph-btn" href="04-parse.html">创建</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

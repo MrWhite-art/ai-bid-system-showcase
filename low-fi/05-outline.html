@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 写作大纲</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 写作大纲：内容区局部样式（灰阶） */
+  .page-title { font-size: 18px; font-weight: bold; color: #334155; }
+  .page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .layout { display: flex; gap: 12px; align-items: flex-start; }
+  .outline-pane { flex: 3; min-width: 0; }
+  .gap-pane { flex: 2; min-width: 0; }
+  .block-title { margin-bottom: 8px; font-size: 14px; font-weight: bold; color: #334155; }
+  .tree { border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; padding: 4px 0; }
+  .tree-row { display: flex; align-items: center; gap: 8px; padding: 8px 12px; font-size: 13px; color: #64748b; border-bottom: 1px solid #f1f5f9; }
+  .tree-row:last-child { border-bottom: none; }
+  .tree-row.lvl1 { padding-left: 32px; }
+  .tree-row.lvl2 { padding-left: 52px; }
+  .t-no { width: 42px; flex-shrink: 0; font-weight: bold; color: #334155; }
+  .t-name { flex: 1; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .t-words { font-size: 12px; color: #94a3b8; }
+  .state-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #94a3b8; }
+  .state-dot.ok { background: #22c55e; }
+  .gap-panel { padding: 12px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .gap-item { margin-bottom: 8px; padding: 8px 10px; font-size: 12px; color: #64748b; border: 1px dashed #cbd5e1; border-radius: 4px; background: #f8fafc; }
+  .gap-action { margin-top: 12px; text-align: center; }
+  .btn-main { display: inline-block; padding: 8px 22px; font-size: 13px; text-align: center; border-radius: 4px; background: #475569; color: #f8fafc; text-decoration: none; }
+  .btn-main:hover { background: #334155; }
+  .bottom-bar { margin-top: 16px; padding: 10px 12px; display: flex; align-items: center; gap: 8px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .bottom-bar .hint { margin-right: auto; font-size: 12px; color: #94a3b8; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav" href="04-parse.html">标书解析</a>
+      <a class="wf-nav is-on" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav" href="08-quote.html">投标报价</a>
+      <a class="wf-nav" href="09-review.html">内容审校</a>
+      <a class="wf-nav" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">编写阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="page-head">
+        <div class="page-title">XX市智慧政务平台采购项目 · 写作大纲</div>
+        <span class="ph-btn">导出大纲</span>
+      </div>
+      <div class="layout">
+        <div class="outline-pane">
+          <div class="block-title">章节大纲（树形占位）</div>
+          <div class="tree">
+            <div class="tree-row lvl0">
+              <span class="t-no">1.</span>
+              <span class="t-name">项目概述（章节占位）</span>
+              <span class="t-words">约 1200 字</span>
+              <span class="state-dot ok"></span>
+            </div>
+            <div class="tree-row lvl1">
+              <span class="t-no">1.1</span>
+              <span class="t-name">项目背景（章节占位）</span>
+              <span class="t-words">约 500 字</span>
+              <span class="state-dot ok"></span>
+            </div>
+            <div class="tree-row lvl2">
+              <span class="t-no">1.1.1</span>
+              <span class="t-name">政策背景（占位）</span>
+              <span class="t-words">约 200 字</span>
+              <span class="state-dot ok"></span>
+            </div>
+            <div class="tree-row lvl2">
+              <span class="t-no">1.1.2</span>
+              <span class="t-name">行业现状（占位）</span>
+              <span class="t-words">约 300 字</span>
+              <span class="state-dot"></span>
+            </div>
+            <div class="tree-row lvl1">
+              <span class="t-no">1.2</span>
+              <span class="t-name">项目目标（章节占位）</span>
+              <span class="t-words">约 700 字</span>
+              <span class="state-dot"></span>
+            </div>
+            <div class="tree-row lvl0">
+              <span class="t-no">2.</span>
+              <span class="t-name">技术方案（章节占位）</span>
+              <span class="t-words">约 3500 字</span>
+              <span class="state-dot"></span>
+            </div>
+            <div class="tree-row lvl1">
+              <span class="t-no">2.1</span>
+              <span class="t-name">系统架构（章节占位）</span>
+              <span class="t-words">约 1200 字</span>
+              <span class="state-dot"></span>
+            </div>
+            <div class="tree-row lvl2">
+              <span class="t-no">2.1.1</span>
+              <span class="t-name">总体架构（占位）</span>
+              <span class="t-words">约 600 字</span>
+              <span class="state-dot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="gap-pane">
+          <div class="block-title">覆盖缺口</div>
+          <div class="gap-panel">
+            <div class="gap-item">缺口占位：评分点 4.1 商务业绩案例未覆盖</div>
+            <div class="gap-item">缺口占位：评分点 5.2 售后服务体系待补全</div>
+            <div class="gap-item">缺口占位：评分点 6.3 实施方案工期需细化</div>
+            <div class="gap-item">缺口占位：评分点 7.1 项目经理资历佐证缺失</div>
+            <div class="gap-action"><span class="ph-btn">一键补全</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <span class="hint">大纲共 12 章 · 预计 1.8 万字（占位）</span>
+        <a class="btn-main" href="06-writing.html">开始写作</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

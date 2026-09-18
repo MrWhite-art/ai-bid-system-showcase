@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 标书解析</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 标书解析：内容区局部样式（灰阶） */
+  .wf-content { position: relative; }
+  .page-title { font-size: 18px; font-weight: bold; color: #334155; }
+  .page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; }
+  .tab { padding: 8px 14px; font-size: 13px; color: #64748b; border-bottom: 2px solid transparent; }
+  .tab.is-on { font-weight: bold; color: #334155; border-bottom: 2px solid #475569; }
+  .block-title { margin-bottom: 8px; font-size: 14px; font-weight: bold; color: #334155; }
+  .cov-dot { display: inline-block; width: 8px; height: 8px; margin-right: 6px; border-radius: 50%; background: #22c55e; }
+  .cov-dot.off { background: #94a3b8; }
+  .source-panel { position: absolute; right: 16px; bottom: 16px; width: 560px; padding: 12px; display: flex; gap: 12px; border: 1px solid #94a3b8; border-radius: 6px; background: #ffffff; box-shadow: 0 4px 12px rgba(51, 65, 85, 0.2); }
+  .source-left { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .source-title { font-size: 13px; font-weight: bold; color: #334155; }
+  .source-item { min-height: 28px; justify-content: flex-start; font-size: 12px; }
+  .source-right { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .quote-label { font-size: 12px; color: #64748b; }
+  .quote-box { min-height: 88px; text-align: left; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav is-on" href="04-parse.html">标书解析</a>
+      <a class="wf-nav" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav" href="08-quote.html">投标报价</a>
+      <a class="wf-nav" href="09-review.html">内容审校</a>
+      <a class="wf-nav" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">准备阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="page-head">
+        <div class="page-title">XX市智慧政务平台采购项目 · 标书解析</div>
+        <a class="ph-btn" href="#">重新解析</a>
+      </div>
+      <div class="tabs">
+        <span class="tab">项目信息</span>
+        <span class="tab is-on">评分标准</span>
+        <span class="tab">技术需求</span>
+        <span class="tab">商务条款</span>
+      </div>
+      <div class="block-title">评分标准（表格占位）</div>
+      <div class="ph-table">
+        <div class="ph-row head">
+          <div class="ph-cell">评分项</div>
+          <div class="ph-cell">分值</div>
+          <div class="ph-cell">覆盖状态</div>
+          <div class="ph-cell">操作</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell">商务分（条目占位）</div>
+          <div class="ph-cell">40</div>
+          <div class="ph-cell"><span class="cov-dot"></span>已覆盖</div>
+          <div class="ph-cell">溯源</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell">技术分（条目占位）</div>
+          <div class="ph-cell">40</div>
+          <div class="ph-cell"><span class="cov-dot off"></span>未覆盖</div>
+          <div class="ph-cell">溯源</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell">价格分（条目占位）</div>
+          <div class="ph-cell">20</div>
+          <div class="ph-cell"><span class="cov-dot"></span>已覆盖</div>
+          <div class="ph-cell">溯源</div>
+        </div>
+      </div>
+
+      <div class="source-panel">
+        <div class="source-left">
+          <div class="source-title">原文溯源（浮层占位）</div>
+          <div class="ph source-item">高亮条目占位：商务分权重 40%</div>
+          <div class="ph source-item">高亮条目占位：评标办法 3.2 条</div>
+        </div>
+        <div class="source-right">
+          <div class="quote-label">原文引用框</div>
+          <div class="ph quote-box">原文引用占位：招标文件「评标办法」章节原文，右侧滚动展示……</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

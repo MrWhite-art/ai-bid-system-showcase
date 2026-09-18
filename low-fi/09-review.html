@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 审校</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 审校：筛选标签 + 问题列表 + 审校总结卡（灰阶） */
+  .page-title { font-size: 18px; font-weight: bold; color: #334155; }
+  .page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .layout { display: flex; gap: 12px; align-items: flex-start; }
+  .main-pane { flex: 7; min-width: 0; }
+  .side-pane { flex: 3; min-width: 0; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; }
+  .tab { padding: 8px 14px; font-size: 13px; color: #64748b; border-bottom: 2px solid transparent; }
+  .tab.is-on { font-weight: bold; color: #334155; border-bottom: 2px solid #475569; }
+  .issue { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; padding: 10px 12px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .badge { flex-shrink: 0; display: inline-block; padding: 1px 6px; font-size: 11px; border-radius: 3px; background: #e2e8f0; color: #64748b; }
+  .badge.b-format { color: #475569; }
+  .badge.b-complete { background: #cbd5e1; color: #334155; }
+  .badge.b-consist { background: #94a3b8; color: #ffffff; }
+  .badge.b-typo { background: #cbd5e1; color: #475569; }
+  .issue-title { flex: 1; min-width: 0; font-size: 13px; color: #334155; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .issue-chap { width: 200px; flex-shrink: 0; font-size: 12px; color: #94a3b8; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .sum-card { padding: 12px; display: flex; flex-direction: column; gap: 10px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .sum-title { font-size: 14px; font-weight: bold; color: #334155; }
+  .sum-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px; color: #64748b; }
+  .num-ph { min-width: 52px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #94a3b8; border: 1px dashed #94a3b8; border-radius: 3px; background: #e2e8f0; }
+  .sum-hint { padding-top: 8px; border-top: 1px dashed #e2e8f0; font-size: 12px; color: #94a3b8; }
+  .bottom-bar { margin-top: 16px; padding: 10px 12px; display: flex; align-items: center; gap: 8px; border: 1px solid #e2e8f0; border-radius: 4px; background: #ffffff; }
+  .bottom-bar .hint { margin-right: auto; font-size: 12px; color: #94a3b8; }
+  .btn-main { display: inline-block; padding: 8px 22px; font-size: 13px; text-align: center; border-radius: 4px; background: #475569; color: #f8fafc; text-decoration: none; }
+  .btn-main:hover { background: #334155; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav" href="04-parse.html">标书解析</a>
+      <a class="wf-nav" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav" href="08-quote.html">投标报价</a>
+      <a class="wf-nav is-on" href="09-review.html">内容审校</a>
+      <a class="wf-nav" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">评审阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="page-head">
+        <div class="page-title">XX市智慧政务平台采购项目 · 审校</div>
+        <span class="ph-btn">重新审校</span>
+      </div>
+      <div class="tabs">
+        <span class="tab is-on">全部</span>
+        <span class="tab">格式</span>
+        <span class="tab">完整性</span>
+        <span class="tab">一致性</span>
+        <span class="tab">错别字</span>
+      </div>
+      <div class="layout">
+        <div class="main-pane">
+          <div class="block-title">审校问题（列表占位）</div>
+          <div class="issue">
+            <span class="badge b-typo">错别字</span>
+            <span class="issue-title">「部署」误写为「部属」</span>
+            <span class="issue-chap">第 3 章 3.2 系统部署</span>
+            <a class="ph-btn" href="06-writing.html">定位</a>
+          </div>
+          <div class="issue">
+            <span class="badge b-format">格式</span>
+            <span class="issue-title">一级标题未加粗</span>
+            <span class="issue-chap">第 1 章 项目概述</span>
+            <a class="ph-btn" href="06-writing.html">定位</a>
+          </div>
+          <div class="issue">
+            <span class="badge b-complete">完整性</span>
+            <span class="issue-title">缺「售后服务承诺」章节（对应评分点 6.3）</span>
+            <span class="issue-chap">第 4 章 商务应答</span>
+            <a class="ph-btn" href="06-writing.html">定位</a>
+          </div>
+          <div class="issue">
+            <span class="badge b-consist">一致性</span>
+            <span class="issue-title">项目名称前后不一致（正文与封面）</span>
+            <span class="issue-chap">第 2 章 技术方案</span>
+            <a class="ph-btn" href="06-writing.html">定位</a>
+          </div>
+          <div class="issue">
+            <span class="badge b-format">格式</span>
+            <span class="issue-title">表格跨页未重复表头</span>
+            <span class="issue-chap">第 4 章 商务应答</span>
+            <a class="ph-btn" href="06-writing.html">定位</a>
+          </div>
+          <div class="issue">
+            <span class="badge b-complete">完整性</span>
+            <span class="issue-title">报价表缺税费说明</span>
+            <span class="issue-chap">第 8 章 报价</span>
+            <a class="ph-btn" href="06-writing.html">定位</a>
+          </div>
+        </div>
+        <div class="side-pane">
+          <div class="sum-card">
+            <div class="sum-title">审校总结（卡片占位）</div>
+            <div class="sum-item">问题总数<span class="num-ph">数字占位</span></div>
+            <div class="sum-item">已处理<span class="num-ph">数字占位</span></div>
+            <div class="sum-item">未处理<span class="num-ph">数字占位</span></div>
+            <div class="sum-hint">处理进度与类型分布占位，待审校引擎接入</div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <span class="hint">问题条目与定位按钮为占位</span>
+        <a class="btn-main" href="10-export.html">下一步：导出</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>线框 — 覆盖矩阵</title>
+<link rel="stylesheet" href="shell.css">
+<style>
+  /* 覆盖矩阵：筛选标签 + 对照表（灰阶） */
+  .page-title { font-size: 18px; font-weight: bold; color: #334155; }
+  .page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid #e2e8f0; }
+  .tab { padding: 8px 14px; font-size: 13px; color: #64748b; border-bottom: 2px solid transparent; }
+  .tab.is-on { font-weight: bold; color: #334155; border-bottom: 2px solid #475569; }
+  .tag { display: inline-block; padding: 1px 6px; font-size: 11px; border-radius: 3px; }
+  .tag.ok { background: #dcfce7; color: #16a34a; }
+  .tag.todo { background: #e2e8f0; color: #64748b; }
+  .tag.off { background: #e2e8f0; color: #94a3b8; }
+  .c-no { flex: 1.2; }
+  .c-name { flex: 2; }
+  .c-body { flex: 3.4; }
+  .c-status { flex: 1.4; }
+  .c-op { flex: 1.4; }
+</style>
+</head>
+<body>
+  <aside class="wf-sidebar">
+    <div class="wf-logo">AI 标书系统</div>
+    <nav>
+      <div class="wf-group">工作台</div>
+      <a class="wf-nav" href="02-dashboard.html">驾驶舱</a>
+      <div class="wf-group">投标项目</div>
+      <a class="wf-nav" href="03-tenders.html">投标项目</a>
+      <a class="wf-nav" href="04-parse.html">标书解析</a>
+      <a class="wf-nav" href="05-outline.html">写作大纲</a>
+      <a class="wf-nav" href="06-writing.html">写作工作台</a>
+      <a class="wf-nav is-on" href="07-matrix.html">覆盖矩阵</a>
+      <div class="wf-group">商务</div>
+      <a class="wf-nav" href="08-quote.html">投标报价</a>
+      <a class="wf-nav" href="09-review.html">内容审校</a>
+      <a class="wf-nav" href="10-export.html">文档导出</a>
+      <div class="wf-group">知识库</div>
+      <a class="wf-nav" href="#">知识库</a>
+    </nav>
+  </aside>
+  <main class="wf-main">
+    <header class="wf-topbar">
+      <span class="wf-proj">XX市智慧政务平台采购项目</span>
+      <span class="wf-stage">编写阶段</span>
+      <span class="wf-user">admin</span>
+    </header>
+    <section class="wf-content">
+      <div class="page-head">
+        <div class="page-title">XX市智慧政务平台采购项目 · 覆盖矩阵</div>
+        <span class="ph-btn">导出对照表</span>
+      </div>
+      <div class="tabs">
+        <span class="tab is-on">全部</span>
+        <span class="tab">技术</span>
+        <span class="tab">商务</span>
+      </div>
+      <div class="ph-table">
+        <div class="ph-row head">
+          <div class="ph-cell c-no">评分点编号</div>
+          <div class="ph-cell c-name">评分点名称</div>
+          <div class="ph-cell c-body">响应内容</div>
+          <div class="ph-cell c-status">状态</div>
+          <div class="ph-cell c-op">操作</div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell c-no">4.1</div>
+          <div class="ph-cell c-name">商务分：同类业绩案例（占位）</div>
+          <div class="ph-cell c-body">已按招标要求补充近三年案例摘要……（响应内容占位）</div>
+          <div class="ph-cell c-status"><span class="tag ok">已覆盖</span></div>
+          <div class="ph-cell c-op"><a class="ph-btn" href="06-writing.html">去写作</a></div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell c-no">5.2</div>
+          <div class="ph-cell c-name">技术分：系统架构（占位）</div>
+          <div class="ph-cell c-body">待生成，建议结合整体架构图与安全设计……（响应内容占位）</div>
+          <div class="ph-cell c-status"><span class="tag todo">待覆盖</span></div>
+          <div class="ph-cell c-op"><a class="ph-btn" href="06-writing.html">去写作</a></div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell c-no">6.3</div>
+          <div class="ph-cell c-name">商务分：售后服务体系（占位）</div>
+          <div class="ph-cell c-body">尚未在正文体现，需新建章节补充方案……（响应内容占位）</div>
+          <div class="ph-cell c-status"><span class="tag off">未涉及</span></div>
+          <div class="ph-cell c-op"><a class="ph-btn" href="06-writing.html">去写作</a></div>
+        </div>
+        <div class="ph-row">
+          <div class="ph-cell c-no">7.1</div>
+          <div class="ph-cell c-name">商务分：项目经理资历（占位）</div>
+          <div class="ph-cell c-body">拟投入人员表已导入，正文描述待补全……（响应内容占位）</div>
+          <div class="ph-cell c-status"><span class="tag todo">待覆盖</span></div>
+          <div class="ph-cell c-op"><a class="ph-btn" href="06-writing.html">去写作</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
