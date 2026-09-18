@@ -22,6 +22,7 @@
 | --- | --- |
 | **[交互原型](https://mrwhite-art.github.io/ai-bid-system-showcase/demo/index.html)** | 用 mock 数据跑通的完整界面原型，可直接点击操作 |
 | **[线框图](https://mrwhite-art.github.io/ai-bid-system-showcase/low-fi/02-dashboard.html)** | 10 张页面级线框图（登录 / 驾驶舱 / 招标 / 解析 / 大纲 / 写作 / 矩阵 / 报价 / 审校 / 导出） |
+| **[界面截图](screenshots/ui/ui-02-dashboard.png)** | **真实前端界面截图** 10 张：驾驶舱 / 招标管理 / 招标解析 / AI 大纲 / 内容写作 / 响应矩阵 / 内容审校 / 知识库 / 公司信息 / 登录 |
 | **[设计系统](screenshots/design-system.png)** | 色彩令牌、字体层级、圆角与阴影规范 |
 
 ---
@@ -163,6 +164,54 @@ flowchart TB
 ---
 
 ## 界面预览
+
+以下均为**真实前端界面截图**（在本地完整部署「后端 + 前端 + 数据库」后实际运行截取，
+库中数据为合成演示数据，不含任何真实客户信息）。
+
+### 驾驶舱 · 项目总览
+
+![驾驶舱](screenshots/ui/ui-02-dashboard.png)
+
+### 招标项目管理
+
+![招标项目管理](screenshots/ui/ui-03-tender.png)
+
+### 招标解析 · 评分标准抽取与原文溯源
+
+左侧为项目信息与关键条款，右侧为评分标准表；每条均带「溯源」按钮，
+可回查该结论在招标文件原文中的出处。
+
+![招标解析](screenshots/ui/ui-04-parse.png)
+
+### AI 大纲生成
+
+![AI 大纲](screenshots/ui/ui-05-outline.png)
+
+### 内容写作工作台（三栏：大纲导航 / 富文本编辑 / 知识库参考）
+
+![内容写作](screenshots/ui/ui-06-writing.png)
+
+### 响应矩阵 · 技术需求逐条对照
+
+![响应矩阵](screenshots/ui/ui-07-response-matrix.png)
+
+### 内容审校
+
+![内容审校](screenshots/ui/ui-08-review.png)
+
+### 知识库文档管理
+
+![知识库](screenshots/ui/ui-09-kb.png)
+
+### 公司信息（企业资料占位符数据源）
+
+![公司信息](screenshots/ui/ui-10-company.png)
+
+### 登录
+
+![登录](screenshots/ui/ui-01-login.png)
+
+### 设计系统规范
 
 ![设计系统](screenshots/design-system.png)
 

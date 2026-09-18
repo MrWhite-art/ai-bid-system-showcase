@@ -44,8 +44,10 @@
   .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
   .card h3{margin:0 0 8px;font-size:15px;color:var(--brand-dark)}
   .card p{margin:0;font-size:13.5px;color:var(--muted)}
-  .shots{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:52px}
-  .shots img{width:100%;border:1px solid var(--border);border-radius:12px;background:#fff}
+  .shots{display:grid;grid-template-columns:1fr;gap:26px;margin-bottom:52px}
+  .shots figure{margin:0}
+  .shots img{width:100%;border:1px solid var(--border);border-radius:12px;background:#fff;display:block}
+  .shots figcaption{margin-top:9px;font-size:13px;color:var(--muted);text-align:center}
   .note{
     background:#fffbeb;border:1px solid #fde68a;border-radius:12px;
     padding:18px 20px;font-size:13.5px;color:#78350f;margin-bottom:40px;
@@ -131,8 +133,55 @@
   </div>
 
   <h2>界面预览</h2>
+  <p class="lede" style="margin-bottom:22px">
+    以下为真实前端界面截图：在本地完整部署「后端 + 前端 + 数据库」后实际运行截取，
+    库中数据为合成演示数据，不含任何真实客户信息。
+  </p>
   <div class="shots">
-    <img src="screenshots/design-system.png" alt="设计系统：色彩令牌、字体层级、圆角与阴影">
+    <figure>
+      <img src="screenshots/ui/ui-02-dashboard.png" alt="驾驶舱：项目总览、快捷操作与最近项目">
+      <figcaption>驾驶舱 · 项目总览</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-03-tender.png" alt="招标项目管理列表">
+      <figcaption>招标项目管理</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-04-parse.png" alt="招标解析：评分标准抽取与原文溯源">
+      <figcaption>招标解析 · 评分标准抽取与原文溯源</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-05-outline.png" alt="AI 大纲生成，含章节字数与响应矩阵对照">
+      <figcaption>AI 大纲生成</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-06-writing.png" alt="内容写作工作台：大纲导航、富文本编辑、知识库参考">
+      <figcaption>内容写作工作台（三栏：大纲导航 / 富文本编辑 / 知识库参考）</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-07-response-matrix.png" alt="响应矩阵：技术需求逐条对照与覆盖统计">
+      <figcaption>响应矩阵 · 技术需求逐条对照</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-08-review.png" alt="内容审校：完整性、一致性、敏感信息检查">
+      <figcaption>内容审校</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-09-kb.png" alt="知识库文档管理">
+      <figcaption>知识库文档管理</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-10-company.png" alt="公司信息，企业资料占位符数据源">
+      <figcaption>公司信息（企业资料占位符数据源）</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/ui/ui-01-login.png" alt="登录页">
+      <figcaption>登录</figcaption>
+    </figure>
+    <figure>
+      <img src="screenshots/design-system.png" alt="设计系统：色彩令牌、字体层级、圆角与阴影">
+      <figcaption>设计系统规范</figcaption>
+    </figure>
   </div>
 
   <footer>
